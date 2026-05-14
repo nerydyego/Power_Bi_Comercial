@@ -1,0 +1,18 @@
+# Power BI
+*.tmp
+*.bak
+*.log
+*.zip
+
+# Cache / sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Python, caso use depois
+__pycache__/
+*.pyc
+.env
+venv/
