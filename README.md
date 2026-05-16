@@ -377,6 +377,6 @@ Dyego Nery
 ## 🔗 Contatos
 
 - LinkedIn: www.linkedin.com/in/dyego-nery
-- GitHub: [Adicionar](https://github.com/nerydyego)
+- GitHub: https://github.com/nerydyego
 
 ---
