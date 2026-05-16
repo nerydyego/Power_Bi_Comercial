@@ -58,3 +58,89 @@ O projeto foi desenvolvido utilizando o conceito de:
 | dFornecedor | fVendas | 1:N |
 
 ---
+# 🧮 Colunas Calculadas — DAX
+
+## 🔹 Custo da Compra
+
+Relaciona o custo do produto com a quantidade comprada.
+
+```DAX
+Custo da Compra =
+RELATED(dProdutos[Custo Total]) * fVendas[Quantidade]
+```
+
+---
+
+## 🔹 Status da Entrega
+
+Responsável por identificar se a entrega ocorreu dentro do prazo previsto.
+
+```DAX
+Status =
+IF(
+    [Entrega Realizada] > [Previsão de Entrega];
+    "Atrasada";
+    "No Prazo"
+)
+```
+
+---
+
+# 📈 Medidas Criadas — DAX
+
+## 🔹 Total de Gastos
+
+```DAX
+Total de gastos =
+SUM(fVendas[Custo da Compra])
+```
+
+---
+
+## 🔹 Ticket Médio
+
+```DAX
+Ticket medio =
+AVERAGE(fVendas[Custo da Compra])
+```
+
+---
+
+## 🔹 Compras Realizadas
+
+```DAX
+Compras Realizadas =
+COUNTROWS(fVendas)
+```
+
+---
+
+## 🔹 Percentual de Compras no Prazo
+
+```DAX
+% Compras no Prazo =
+CALCULATE(
+    [Compras Realizadas];
+    fVendas[Status] = "No Prazo"
+)
+/ [Compras Realizadas]
+```
+
+> Formatação aplicada: Percentual (%)
+
+---
+
+## 🔹 Percentual de Compras Atrasadas
+
+```DAX
+% Compras Atrasadas =
+CALCULATE(
+    [Compras Realizadas];
+    fVendas[Status] = "Atrasada"
+)
+/ [Compras Realizadas]
+```
+
+> Formatação aplicada: Percentual (%)
+
+---
